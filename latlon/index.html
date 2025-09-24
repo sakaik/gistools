@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>緯度経度の変換と地図表示</title>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@3.5.2/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <section class="controls">
+      <h1>緯度経度の変換と地図表示</h1>
+      <form id="coordinate-form" novalidate>
+        <label for="latitude">
+          緯度 (°)
+          <input type="number" id="latitude" name="latitude" min="-90" max="90" step="any" required value="35.6804">
+        </label>
+        <label for="longitude">
+          経度 (°)
+          <input type="number" id="longitude" name="longitude" min="-180" max="180" step="any" required value="139.7690">
+        </label>
+        <button type="submit">地図に反映</button>
+      </form>
+      <div id="message" role="alert" aria-live="polite"></div>
+      <div id="dms-output">
+        <p><strong>緯度:</strong> <span id="latitude-dms">-</span></p>
+        <p><strong>経度:</strong> <span id="longitude-dms">-</span></p>
+      </div>
+      <div id="dm-output">
+        <p><strong>緯度 (度分):</strong> <span id="latitude-dm">-</span></p>
+        <p><strong>経度 (度分):</strong> <span id="longitude-dm">-</span></p>
+      </div>
+    </section>
+    <section>
+      <div id="map" aria-label="選択された位置の地図"></div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/maplibre-gl@3.5.2/dist/maplibre-gl.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
